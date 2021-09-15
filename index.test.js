@@ -1,5 +1,6 @@
 const utils = require('./index')
 
+
 describe('[Exercise 1] trimProperties', () => {
   test('[1] returns an object with the properties trimmed', () => {
     // EXAMPLE
@@ -9,6 +10,7 @@ describe('[Exercise 1] trimProperties', () => {
     expect(actual).toEqual(expected)
   })
   test('[2] returns a copy, leaving the original object intact', () => {
+    //Declare and init input object
     const input = { foo: '  foo ', bar: 'bar ', baz: ' baz' }
     //Call the func, arg: input
     utils.trimProperties(input)
@@ -18,12 +20,42 @@ describe('[Exercise 1] trimProperties', () => {
 })
 
 describe('[Exercise 2] trimPropertiesMutation', () => {
-  // test('[3] returns an object with the properties trimmed', () => {})
-  // test('[4] the object returned is the exact same one we passed in', () => {})
+  test('[3] returns an object with the properties trimmed', () => {
+    //Declare and init input object
+    const input = { foo: '  foo ', bar: 'bar ', baz: ' baz' }
+    //Declare expected object
+    const expected = { foo: 'foo', bar: 'bar', baz: 'baz' }
+    //call trimProperties() arg: input
+    const actual = utils.trimProperties(input)
+    //Expect actual to equal expected
+    expect(actual).toEqual(expected)
+  })
+
+  test('[4] the object returned is the exact same one we passed in', () => {
+    //Declare input object
+    const input = { foo: '  foo ', bar: 'bar ', baz: ' baz' }
+    //call trimProperties() arg: input
+    const actual = utils. trimPropertiesMutation(input)
+    //Expect actual to be the same as input
+    expect(actual).toBe(input)
+  })
 })
 
 describe('[Exercise 3] findLargestInteger', () => {
-  // test('[5] returns the largest number in an array of objects { integer: 2 }', () => {})
+  test('[5] returns the largest number in an array of objects { integer: 2 }', () => {
+    //Declare and init input object
+    const input = ([{ integer: 1 }, { integer: 3 }, { integer: 2 }])
+    const input2 = ([{ integer: 4 }, { integer: 3 }, { integer: 2 }])
+    const input3= ([{ integer: 1 }, { integer: 3 }, { integer: 4 }])
+    //Call findLargestInteger arg: input
+    const actual = utils.findLargestInteger(input)
+    const actual2 = utils.findLargestInteger(input2)
+    const actual3 = utils.findLargestInteger(input3)
+    //expect actual to be highest value
+    expect(actual).toBe(3)
+    expect(actual2).toBe(4)
+    expect(actual3).toBe(4)
+  })
 })
 
 describe('[Exercise 4] Counter', () => {
