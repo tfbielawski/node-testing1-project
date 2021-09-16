@@ -198,9 +198,15 @@ class Car {
  *    // result is false
  * })
  */
-function isEvenNumberAsync(number) {
-  if(number % 2 === 0){return Promise.resolve(true)}
-  else {return Promise.resolve(false)}
+// function isEvenNumberAsync(number) {
+//   if(number % 2 === 0){return Promise.resolve(true)}
+//   else {return Promise.resolve(false)}
+// }
+
+//or
+async function isEvenNumberAsync(number) {
+  if(number % 2 === 0){return true}
+  else {return false}
 }
 
 module.exports = {
